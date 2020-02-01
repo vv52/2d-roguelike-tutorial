@@ -5,7 +5,8 @@ using System.Collections;
     public class Enemy : MovingObject
     {
         public int playerDamage;                             //The amount of food points to subtract from the player when attacking.
-
+        public AudioClip enemyAttack1;
+        public AudioClip enemyAttack2;
 
         private Animator animator;                            //Variable of type Animator to store a reference to the enemy's Animator component.
         private Transform target;                            //Transform to attempt to move toward each turn.
@@ -87,5 +88,6 @@ using System.Collections;
             //Set the attack trigger of animator to trigger Enemy attack animation.
             animator.SetTrigger ("enemyAttack");
 
+            SoundManager.instance.RandomizeSfx(enemyAttack1, enemyAttack2);
         }
     }
